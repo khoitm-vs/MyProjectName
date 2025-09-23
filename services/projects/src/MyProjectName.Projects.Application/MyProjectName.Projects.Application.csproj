@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>MyProjectName.Projects</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.AutoMapper" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.Ddd.Application" Version="9.0.0" />
+        <ProjectReference Include="..\MyProjectName.Projects.Application.Contracts\MyProjectName.Projects.Application.Contracts.csproj" />
+        <ProjectReference Include="..\MyProjectName.Projects.Domain\MyProjectName.Projects.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

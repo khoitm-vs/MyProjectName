@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>MyProjectName.SaaS</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\MyProjectName.SaaS.Application\MyProjectName.SaaS.Application.csproj" />
+    <ProjectReference Include="..\MyProjectName.SaaS.Domain.Tests\MyProjectName.SaaS.Domain.Tests.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+  </ItemGroup>
+
+</Project>

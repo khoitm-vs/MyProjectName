@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>MyProjectName.SaaS</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.Ddd.Domain" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="9.0.0" />
+        <ProjectReference Include="..\MyProjectName.SaaS.Domain.Shared\MyProjectName.SaaS.Domain.Shared.csproj" />
+    </ItemGroup></Project>

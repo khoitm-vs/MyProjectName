@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "MyProjectName.IdentityService": {
+      "path": "MyProjectName.IdentityService.abpmdl.json"
+    }
+  }
+}

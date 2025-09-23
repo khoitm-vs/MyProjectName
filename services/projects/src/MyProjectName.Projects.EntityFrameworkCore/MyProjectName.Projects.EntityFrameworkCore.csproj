@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>MyProjectName.Projects</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\shared\MyProjectName.Shared\MyProjectName.Shared.csproj" />
+        <ProjectReference Include="..\MyProjectName.Projects.Domain\MyProjectName.Projects.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

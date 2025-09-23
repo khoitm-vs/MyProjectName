@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\shared\MyProjectName.Hosting.Shared\MyProjectName.Hosting.Shared.csproj" />
+        <ProjectReference Include="..\..\..\..\shared\MyProjectName.ServiceDefaults\MyProjectName.ServiceDefaults.csproj" />
+        <ProjectReference Include="..\MyProjectName.WebApp.Blazor.Client\MyProjectName.WebApp.Blazor.Client.csproj" />
+    </ItemGroup>
+
+</Project>

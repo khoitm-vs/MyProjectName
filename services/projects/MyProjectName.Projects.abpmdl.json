@@ -1,0 +1,79 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "MyProjectName.Projects.Domain.Shared": {
+      "path": "src/MyProjectName.Projects.Domain.Shared/MyProjectName.Projects.Domain.Shared.abppkg.json",
+      "folder": "src"
+    },
+    "MyProjectName.Projects.Domain": {
+      "path": "src/MyProjectName.Projects.Domain/MyProjectName.Projects.Domain.abppkg.json",
+      "folder": "src"
+    },
+    "MyProjectName.Projects.Application.Contracts": {
+      "path": "src/MyProjectName.Projects.Application.Contracts/MyProjectName.Projects.Application.Contracts.abppkg.json",
+      "folder": "src"
+    },
+    "MyProjectName.Projects.Application": {
+      "path": "src/MyProjectName.Projects.Application/MyProjectName.Projects.Application.abppkg.json",
+      "folder": "src"
+    },
+    "MyProjectName.Projects.EntityFrameworkCore": {
+      "path": "src/MyProjectName.Projects.EntityFrameworkCore/MyProjectName.Projects.EntityFrameworkCore.abppkg.json",
+      "folder": "src"
+    },
+    "MyProjectName.Projects.MongoDB": {
+      "path": "src/MyProjectName.Projects.MongoDB/MyProjectName.Projects.MongoDB.abppkg.json",
+      "folder": "src"
+    },
+    "MyProjectName.Projects.HttpApi": {
+      "path": "src/MyProjectName.Projects.HttpApi/MyProjectName.Projects.HttpApi.abppkg.json",
+      "folder": "src"
+    },
+    "MyProjectName.Projects.HttpApi.Client": {
+      "path": "src/MyProjectName.Projects.HttpApi.Client/MyProjectName.Projects.HttpApi.Client.abppkg.json",
+      "folder": "src"
+    },
+    "MyProjectName.Projects.TestBase": {
+      "path": "test/MyProjectName.Projects.TestBase/MyProjectName.Projects.TestBase.abppkg.json",
+      "folder": "test"
+    },
+    "MyProjectName.Projects.EntityFrameworkCore.Tests": {
+      "path": "test/MyProjectName.Projects.EntityFrameworkCore.Tests/MyProjectName.Projects.EntityFrameworkCore.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "MyProjectName.Projects.MongoDB.Tests": {
+      "path": "test/MyProjectName.Projects.MongoDB.Tests/MyProjectName.Projects.MongoDB.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "MyProjectName.Projects.Domain.Tests": {
+      "path": "test/MyProjectName.Projects.Domain.Tests/MyProjectName.Projects.Domain.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "MyProjectName.Projects.Application.Tests": {
+      "path": "test/MyProjectName.Projects.Application.Tests/MyProjectName.Projects.Application.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "MyProjectName.Projects.HttpApi.Host": {
+      "path": "host/MyProjectName.Projects.HttpApi.Host/MyProjectName.Projects.HttpApi.Host.abppkg.json",
+      "folder": "host"
+    },
+    "MyProjectName.Projects.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/MyProjectName.Projects.HttpApi.Client.ConsoleTestApp/MyProjectName.Projects.HttpApi.Client.ConsoleTestApp.abppkg.json",
+      "folder": "test"
+    },
+    "MyProjectName.Projects.IdentityServer": {
+      "path": "host/MyProjectName.Projects.IdentityServer/MyProjectName.Projects.IdentityServer.abppkg.json",
+      "folder": "host"
+    },
+    "MyProjectName.Projects.Host.Shared": {
+      "path": "host/MyProjectName.Projects.Host.Shared/MyProjectName.Projects.Host.Shared.abppkg.json",
+      "folder": "host"
+    }
+  }
+}

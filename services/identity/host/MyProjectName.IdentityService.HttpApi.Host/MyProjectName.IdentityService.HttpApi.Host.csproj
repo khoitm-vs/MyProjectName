@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>MyProjectName.IdentityService</RootNamespace>
+        <PreserveCompilationReferences>true</PreserveCompilationReferences>
+        <UserSecretsId>MyProjectName.IdentityService-c2d31439-b723-48e2-b061-5ebd7aeb6010</UserSecretsId>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <DockerfileContext>..\..\..\..</DockerfileContext>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\shared\MyProjectName.Microservice.Shared\MyProjectName.Microservice.Shared.csproj" />
+        <ProjectReference Include="..\..\..\..\shared\MyProjectName.ServiceDefaults\MyProjectName.ServiceDefaults.csproj" />
+        <ProjectReference Include="..\..\..\administration\src\MyProjectName.Administration.EntityFrameworkCore\MyProjectName.Administration.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\..\..\saas\src\MyProjectName.SaaS.EntityFrameworkCore\MyProjectName.SaaS.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="..\..\src\MyProjectName.IdentityService.HttpApi\MyProjectName.IdentityService.HttpApi.csproj" />
+        <ProjectReference Include="..\..\src\MyProjectName.IdentityService.Application\MyProjectName.IdentityService.Application.csproj" />
+        <ProjectReference Include="..\..\src\MyProjectName.IdentityService.EntityFrameworkCore\MyProjectName.IdentityService.EntityFrameworkCore.csproj" />
+    </ItemGroup></Project>

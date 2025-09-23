@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>MyProjectName.Projects</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.Ddd.Domain" Version="9.0.0" />
+        <ProjectReference Include="..\MyProjectName.Projects.Domain.Shared\MyProjectName.Projects.Domain.Shared.csproj" />
+    </ItemGroup>
+
+</Project>

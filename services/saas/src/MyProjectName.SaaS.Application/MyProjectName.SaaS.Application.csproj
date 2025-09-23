@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <RootNamespace>MyProjectName.SaaS</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.AutoMapper" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.Ddd.Application" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="9.0.0" />
+        <ProjectReference Include="..\..\..\administration\src\MyProjectName.Administration.Application\MyProjectName.Administration.Application.csproj" />
+        <ProjectReference Include="..\MyProjectName.SaaS.Application.Contracts\MyProjectName.SaaS.Application.Contracts.csproj" />
+        <ProjectReference Include="..\MyProjectName.SaaS.Domain\MyProjectName.SaaS.Domain.csproj" />
+    </ItemGroup>
+
+</Project>
