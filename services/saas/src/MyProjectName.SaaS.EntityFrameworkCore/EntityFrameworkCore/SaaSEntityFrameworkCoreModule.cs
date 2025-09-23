@@ -33,7 +33,7 @@ public class SaaSEntityFrameworkCoreModule : AbpModule
 
         Configure<AbpDbContextOptions>(options =>
         {
-            options.UseNpgsql();
+            options.UseSqlServer();
         });
 
         context.Services.AddAbpDbContext<SaaSDbContext>(options =>

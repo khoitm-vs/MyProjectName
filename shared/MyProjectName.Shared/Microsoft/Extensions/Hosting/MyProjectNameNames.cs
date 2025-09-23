@@ -4,8 +4,8 @@ public static class MyProjectNameNames
 {
     public const string MyProjectName = "MyProjectName";
 
-    public const string Postgres = "postgres";
-    public const string RabbitMq = "rabbitmq";
+    public const string SqlServer = "sqlserver";
+    public const string Kafka = "kafka";
     public const string Redis = "redis";
     public const string Seq = "seq";
 

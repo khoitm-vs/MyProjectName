@@ -11,7 +11,7 @@ public class SaaSDbContextFactory : IDesignTimeDbContextFactory<SaaSDbContext>
     {
         var configuration = BuildConfiguration();
 
-        var builder = new DbContextOptionsBuilder<SaaSDbContext>().UseNpgsql(
+        var builder = new DbContextOptionsBuilder<SaaSDbContext>().UseSqlServer(
             GetConnectionStringFromConfiguration()
         );
 

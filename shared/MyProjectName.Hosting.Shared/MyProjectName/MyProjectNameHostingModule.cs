@@ -5,21 +5,20 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RabbitMQ.Client;
-using StackExchange.Redis;
 using MyProjectName.MultiTenancy;
+using StackExchange.Redis;
 using Volo.Abp.AspNetCore.MultiTenancy;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
-using Volo.Abp.BackgroundJobs.RabbitMQ;
+using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.Data;
 using Volo.Abp.DistributedLocking;
-using Volo.Abp.EventBus.RabbitMq;
+using Volo.Abp.EventBus.Kafka;
+using Volo.Abp.Kafka;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
-using Volo.Abp.RabbitMQ;
 using Volo.Abp.Swashbuckle;
 
 namespace MyProjectName;
@@ -27,11 +26,11 @@ namespace MyProjectName;
 [DependsOn(typeof(AbpAspNetCoreMultiTenancyModule))]
 [DependsOn(typeof(AbpAspNetCoreSerilogModule))]
 [DependsOn(typeof(AbpAutofacModule))]
-[DependsOn(typeof(AbpBackgroundJobsRabbitMqModule))]
+[DependsOn(typeof(AbpBackgroundJobsEntityFrameworkCoreModule))]
 [DependsOn(typeof(AbpCachingStackExchangeRedisModule))]
 [DependsOn(typeof(AbpDataModule))]
 [DependsOn(typeof(AbpDistributedLockingModule))]
-[DependsOn(typeof(AbpEventBusRabbitMqModule))]
+[DependsOn(typeof(AbpEventBusKafkaModule))]
 [DependsOn(typeof(AbpSwashbuckleModule))]
 [DependsOn(typeof(MyProjectNameSharedModule))]
 public class MyProjectNameHostingModule : AbpModule
@@ -71,17 +70,6 @@ public class MyProjectNameHostingModule : AbpModule
             options.Languages.Add(new LanguageInfo("es", "es", "Español"));
         });
 
-        Configure<AbpRabbitMqOptions>(options =>
-        {
-            var cstr = configuration.GetConnectionString(MyProjectNameNames.RabbitMq);
-            options.Connections.Default = new ConnectionFactory() { Uri = new Uri(cstr!) };
-        });
-
-        Configure<AbpRabbitMqEventBusOptions>(options =>
-        {
-            options.ClientName = configuration["RabbitMQ:EventBus:ClientName"]!;
-            options.ExchangeName = configuration["RabbitMQ:EventBus:ExchangeName"]!;
-        });
     }
 
     private static void ConfigureDistributedLocking(

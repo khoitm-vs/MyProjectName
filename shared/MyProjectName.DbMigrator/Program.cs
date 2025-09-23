@@ -16,12 +16,12 @@ internal class Program
 
         builder.AddServiceDefaults();
 
-        builder.AddNpgsqlDbContext<AdministrationDbContext>(
+        builder.AddSqlServerDbContext<AdministrationDbContext>(
             connectionName: MyProjectNameNames.AdministrationDb
         );
-        builder.AddNpgsqlDbContext<IdentityDbContext>(connectionName: MyProjectNameNames.IdentityServiceDb);
-        builder.AddNpgsqlDbContext<SaaSDbContext>(connectionName: MyProjectNameNames.SaaSDb);
-        builder.AddNpgsqlDbContext<ProjectsDbContext>(connectionName: MyProjectNameNames.ProjectsDb);
+        builder.AddSqlServerDbContext<IdentityDbContext>(connectionName: MyProjectNameNames.IdentityServiceDb);
+        builder.AddSqlServerDbContext<SaaSDbContext>(connectionName: MyProjectNameNames.SaaSDb);
+        builder.AddSqlServerDbContext<ProjectsDbContext>(connectionName: MyProjectNameNames.ProjectsDb);
 
         builder.Configuration.AddAppSettingsSecretsJson();
 

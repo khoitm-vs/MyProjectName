@@ -10,8 +10,8 @@ internal class Program
         const string LaunchProfileName = "Aspire";
         var builder = DistributedApplication.CreateBuilder(args);
 
-        var postgres = builder.AddPostgres(MyProjectNameNames.Postgres).WithPgWeb();
-        var rabbitMq = builder.AddRabbitMQ(MyProjectNameNames.RabbitMq).WithManagementPlugin();
+        var postgres = builder.AddSqlServer(MyProjectNameNames.SqlServer);
+        var kafka = builder.AddKafka("kafka");
         var redis = builder.AddRedis(MyProjectNameNames.Redis).WithRedisCommander();
         var seq = builder.AddSeq(MyProjectNameNames.Seq);
 
@@ -40,7 +40,7 @@ internal class Program
             .WithExternalHttpEndpoints()
             .WithReference(adminDb)
             .WithReference(identityDb)
-            .WithReference(rabbitMq)
+            .WithReference(kafka)
             .WithReference(redis)
             .WithReference(seq)
             .WaitForCompletion(migrator);
@@ -54,7 +54,7 @@ internal class Program
             .WithReference(adminDb)
             .WithReference(identityDb)
             .WithReference(saasDb)
-            .WithReference(rabbitMq)
+            .WithReference(kafka)
             .WithReference(redis)
             .WithReference(seq)
             .WaitForCompletion(migrator);
@@ -67,7 +67,7 @@ internal class Program
             .WithExternalHttpEndpoints()
             .WithReference(adminDb)
             .WithReference(saasDb)
-            .WithReference(rabbitMq)
+            .WithReference(kafka)
             .WithReference(redis)
             .WithReference(seq)
             .WaitForCompletion(migrator);
@@ -80,7 +80,7 @@ internal class Program
             .WithExternalHttpEndpoints()
             .WithReference(adminDb)
             .WithReference(projectsDb)
-            .WithReference(rabbitMq)
+            .WithReference(kafka)
             .WithReference(redis)
             .WithReference(seq)
             .WaitForCompletion(migrator);
@@ -102,7 +102,7 @@ internal class Program
             .WithReference(adminDb)
             .WithReference(identityDb)
             .WithReference(saasDb)
-            .WithReference(rabbitMq)
+            .WithReference(kafka)
             .WithReference(redis)
             .WithReference(seq)
             .WaitForCompletion(migrator);

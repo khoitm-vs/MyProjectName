@@ -23,11 +23,11 @@ public class Program
             builder.AddServiceDefaults();
             builder.AddSharedEndpoints();
 
-            builder.AddNpgsqlDbContext<AdministrationDbContext>(
+            builder.AddSqlServerDbContext<AdministrationDbContext>(
                 connectionName: MyProjectNameNames.AdministrationDb,
                 configure => configure.DisableRetry = true
             );
-            builder.AddNpgsqlDbContext<SaaSDbContext>(
+            builder.AddSqlServerDbContext<SaaSDbContext>(
                 connectionName: MyProjectNameNames.SaaSDb,
                 configure => configure.DisableRetry = true
             );

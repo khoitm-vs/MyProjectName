@@ -9,7 +9,7 @@
 
     <ItemGroup>
         <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
-        <PackageReference Include="Aspire.Kafka.Client" Version="9.0.0" />
+        <PackageReference Include="Aspire.Confluent.Kafka" Version="9.0.0" />
         <PackageReference Include="Aspire.Seq" Version="9.0.0" />
         <PackageReference Include="Aspire.StackExchange.Redis" Version="9.0.0" />
         <PackageReference Include="Aspire.StackExchange.Redis.DistributedCaching" Version="9.0.0" />
@@ -21,10 +21,10 @@
         <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" Version="9.0.0" />
         <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="9.0.0" />
         <PackageReference Include="Volo.Abp.Autofac" Version="9.0.0" />
-        <PackageReference Include="Volo.Abp.BackgroundJobs.RabbitMq" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.BackgroundJobs.EntityFrameworkCore" Version="9.0.0" />
         <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="9.0.0" />
         <PackageReference Include="Volo.Abp.DistributedLocking" Version="9.0.0" />
-        <PackageReference Include="Volo.Abp.EventBus.RabbitMQ" Version="9.0.0" />
+        <PackageReference Include="Volo.Abp.EventBus.Kafka" Version="9.0.0" />
         <PackageReference Include="Volo.Abp.MultiTenancy" Version="9.0.0" />
         <PackageReference Include="Volo.Abp.Swashbuckle" Version="9.0.0" />
     </ItemGroup>

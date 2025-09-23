@@ -23,11 +23,11 @@ public class Program
             builder.AddServiceDefaults();
             builder.AddSharedEndpoints();
 
-            builder.AddNpgsqlDbContext<AdministrationDbContext>(
+            builder.AddSqlServerDbContext<AdministrationDbContext>(
                 connectionName: MyProjectNameNames.AdministrationDb,
                 configure => configure.DisableRetry = true
             );
-            builder.AddNpgsqlDbContext<IdentityDbContext>(
+            builder.AddSqlServerDbContext<IdentityDbContext>(
                 connectionName: MyProjectNameNames.IdentityServiceDb,
                 configure => configure.DisableRetry = true
             );
