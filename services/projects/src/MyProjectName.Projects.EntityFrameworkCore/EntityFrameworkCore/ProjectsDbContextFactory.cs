@@ -26,13 +26,8 @@ public class ProjectsDbContextFactory : IDesignTimeDbContextFactory<ProjectsDbCo
     private static IConfigurationRoot BuildConfiguration()
     {
         var builder = new ConfigurationBuilder()
-            .SetBasePath(
-                Path.Combine(
-                    Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName,
-                    $"host{Path.DirectorySeparatorChar}MyProjectName.Projects.HttpApi.Host"
-                )
-            )
-            .AddJsonFile("appsettings.json", false);
+            .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../MyProjectName.Projects.HttpApi.Host/"))
+        .AddJsonFile("appsettings.json", optional: false);
 
         return builder.Build();
     }

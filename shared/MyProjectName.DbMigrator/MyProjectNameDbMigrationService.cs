@@ -43,10 +43,10 @@ public class MyProjectNameDbMigrationService(
     {
         using var uow = _unitOfWorkManager.Begin(true);
 
-        await EnsureDatabaseAsync<SaaSDbContext>(cancellationToken);
         await EnsureDatabaseAsync<AdministrationDbContext>(cancellationToken);
         await EnsureDatabaseAsync<IdentityServiceDbContext>(cancellationToken);
-
+        await EnsureDatabaseAsync<SaaSDbContext>(cancellationToken);
+        await EnsureDatabaseAsync<ProjectsDbContext>(cancellationToken);
         await uow.CompleteAsync(cancellationToken);
     }
 
