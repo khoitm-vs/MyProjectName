@@ -8,6 +8,7 @@ using MyProjectName.MultiTenancy;
 using MyProjectName.SaaS.EntityFrameworkCore;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
+using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.VirtualFileSystem;
 
@@ -26,7 +27,10 @@ public class SaaSHttpApiHostModule : AbpModule
     {
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
-
+        Configure<AbpDbContextOptions>(options =>
+        {
+            options.UseSqlServer();
+        });
         context.ConfigureMicroservice(MyProjectNameNames.SaaSApi);
 
         if (hostingEnvironment.IsDevelopment())

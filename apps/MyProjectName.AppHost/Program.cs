@@ -12,7 +12,7 @@ internal class Program
 
         var postgres = builder.AddSqlServer(MyProjectNameNames.SqlServer);
         var kafka = builder.AddKafka("kafka");
-        var redis = builder.AddRedis(MyProjectNameNames.Redis).WithRedisCommander();
+        //var redis = builder.AddRedis(MyProjectNameNames.Redis).WithRedisCommander();
         var seq = builder.AddSeq(MyProjectNameNames.Seq);
 
         var adminDb = postgres.AddDatabase(MyProjectNameNames.AdministrationDb);
@@ -41,7 +41,7 @@ internal class Program
             .WithReference(adminDb)
             .WithReference(identityDb)
             .WithReference(kafka)
-            .WithReference(redis)
+            //.WithReference(redis)
             .WithReference(seq)
             .WaitForCompletion(migrator);
 
@@ -55,7 +55,7 @@ internal class Program
             .WithReference(identityDb)
             .WithReference(saasDb)
             .WithReference(kafka)
-            .WithReference(redis)
+            //.WithReference(redis)
             .WithReference(seq)
             .WaitForCompletion(migrator);
 
@@ -68,7 +68,7 @@ internal class Program
             .WithReference(adminDb)
             .WithReference(saasDb)
             .WithReference(kafka)
-            .WithReference(redis)
+            //.WithReference(redis)
             .WithReference(seq)
             .WaitForCompletion(migrator);
 
@@ -81,7 +81,7 @@ internal class Program
             .WithReference(adminDb)
             .WithReference(projectsDb)
             .WithReference(kafka)
-            .WithReference(redis)
+            //.WithReference(redis)
             .WithReference(seq)
             .WaitForCompletion(migrator);
 
@@ -103,7 +103,7 @@ internal class Program
             .WithReference(identityDb)
             .WithReference(saasDb)
             .WithReference(kafka)
-            .WithReference(redis)
+            //.WithReference(redis)
             .WithReference(seq)
             .WaitForCompletion(migrator);
 

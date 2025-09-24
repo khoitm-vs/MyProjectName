@@ -6,6 +6,7 @@ using MyProjectName.Projects.EntityFrameworkCore;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
@@ -30,7 +31,10 @@ public class ProjectsHttpApiHostModule : AbpModule
     {
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
-
+        Configure<AbpDbContextOptions>(options =>
+        {
+            options.UseSqlServer();
+        });
         context.ConfigureMicroservice(MyProjectNameNames.ProjectsApi);
 
         if (hostingEnvironment.IsDevelopment())
