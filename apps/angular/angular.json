@@ -64,11 +64,6 @@
                 "input": "node_modules/bootstrap/dist/css/bootstrap.min.css",
                 "inject": true,
                 "bundleName": "bootstrap-ltr.min"
-              },
-              {
-                "input": "node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
-                "inject": false,
-                "bundleName": "ng-zorro-antd-tree"
               }
             ],
             "scripts": []
