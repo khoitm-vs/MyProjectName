@@ -83,9 +83,9 @@ services:
   # Giao diện Angular
   angular-ui:
     build:
-      context: ./apps/angular # Build từ thư mục angular
-      dockerfile: Dockerfile    # Sử dụng Dockerfile ta vừa tạo
+      context: ./apps/angular
+      dockerfile: Dockerfile
     depends_on:
       - gateway
     ports:
-      - "4200:80" # Ánh xạ cổng 4200 của máy chủ tới cổng 80 của container Nginx
+      - "4200:80"
