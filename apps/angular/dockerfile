@@ -1,0 +1,14 @@
+# Giai đoạn 1: Build ứng dụng Angular
+FROM node:18 AS build
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build -- --configuration production
+
+# Giai đoạn 2: Phục vụ ứng dụng bằng Nginx
+FROM nginx:alpine
+COPY --from=build /usr/src/app/dist/my-project-name /usr/share/nginx/html
+# Sao chép tệp cấu hình nginx tùy chỉnh (sẽ tạo ở bước tiếp theo)
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80

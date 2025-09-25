@@ -1,16 +1,15 @@
-version: '3.4'
-
 services:
+  # Database
   sql-server-db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: sql-server-db
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=${DB_SA_PASSWORD} # Đọc mật khẩu từ tệp .env
+      - SA_PASSWORD=${DB_SA_PASSWORD}
     ports:
       - "1433:1433"
 
-  # Zookeeper (yêu cầu bởi Kafka)
+  # Zookeeper & Kafka
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     container_name: zookeeper
@@ -18,7 +17,6 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
 
-  # Kafka Broker
   kafka:
     image: confluentinc/cp-kafka:latest
     container_name: kafka
@@ -26,11 +24,68 @@ services:
       - zookeeper
     ports:
       - "9092:9092"
-      - "9094:9094"
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:9094
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  # .NET Services
+  auth-server:
+    build:
+      context: .
+      dockerfile: ./apps/MyProjectName.AuthServer/Dockerfile
+    depends_on:
+      - sql-server-db
+    ports:
+      - "8001:8080"
+
+  administrationservice:
+    build:
+      context: .
+      dockerfile: ./services/administration/host/MyProjectName.Administration.HttpApi.Host/Dockerfile
+    depends_on:
+      - sql-server-db
+
+  identityservice:
+    build:
+      context: .
+      dockerfile: ./services/identity/host/MyProjectName.IdentityService.HttpApi.Host/Dockerfile
+    depends_on:
+      - sql-server-db
+
+  projectsservice:
+    build:
+      context: .
+      dockerfile: ./services/projects/host/MyProjectName.Projects.HttpApi.Host/Dockerfile
+    depends_on:
+      - sql-server-db
+
+  saasservice:
+    build:
+      context: .
+      dockerfile: ./services/saas/host/MyProjectName.SaaS.HttpApi.Host/Dockerfile
+    depends_on:
+      - sql-server-db
+
+  gateway:
+    build:
+      context: .
+      dockerfile: ./gateway/MyProjectName.Gateway/Dockerfile
+    depends_on:
+      - administrationservice
+      - identityservice
+      - projectsservice
+      - saasservice
+    ports:
+      - "8000:8080"
+
+  # Giao diện Angular
+  angular-ui:
+    build:
+      context: ./apps/angular # Build từ thư mục angular
+      dockerfile: Dockerfile    # Sử dụng Dockerfile ta vừa tạo
+    depends_on:
+      - gateway
+    ports:
+      - "4200:80" # Ánh xạ cổng 4200 của máy chủ tới cổng 80 của container Nginx
